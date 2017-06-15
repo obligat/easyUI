@@ -1,3 +1,15 @@
+
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+<%
+	String username = (String) request.getSession().getAttribute(
+			"username");
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1">
@@ -11,30 +23,15 @@
 	<script type="text/javascript" src='js/outlook2.js'> </script>
     <script type="text/javascript">
 	 var _menus = {"menus":[
-						{"menuid":"1","icon":"icon-sys","menuname":"控件使用",
-							"menus":[{"menuid":"11","menuname":"菜单管理","icon":"icon-nav","url":"http://hxling.cnblogs.com"},
-									{"menuid":"12","menuname":"添加用户","icon":"icon-add","url":"demo.html"},
-									{"menuid":"13","menuname":"用户管理","icon":"icon-users","url":"demo2.html"},
-									{"menuid":"14","menuname":"角色管理","icon":"icon-role","url":"demo2.html"},
-									{"menuid":"15","menuname":"权限设置","icon":"icon-set","url":"demo.html"},
-									{"menuid":"16","menuname":"系统日志","icon":"icon-log","url":"demo1.html"}
-								]
-						},{"menuid":"8","icon":"icon-sys","menuname":"员工管理",
-							"menus":[{"menuid":"21","menuname":"员工列表","icon":"icon-nav","url":"test2.html"},
-									{"menuid":"22","menuname":"视频监控","icon":"icon-nav","url":"demo1.html"}
+						{"menuid":"8","icon":"icon-sys","menuname":"员工管理",
+							"menus":[{"menuid":"21","menuname":"员工列表","icon":"icon-nav","url":"test2.html"}
 								]
 						},{"menuid":"56","icon":"icon-sys","menuname":"库存管理",
 							"menus":[{"menuid":"31","menuname":"商品详情","icon":"icon-nav","url":"product.html"},
 									{"menuid":"32","menuname":"库存列表","icon":"icon-nav","url":"inventory.html"}
 								]
-						},{"menuid":"28","icon":"icon-sys","menuname":"财务管理",
-							"menus":[{"menuid":"41","menuname":"收支分类","icon":"icon-nav","url":"demo.html"},
-									{"menuid":"42","menuname":"报表统计","icon":"icon-nav","url":"demo1.html"},
-									{"menuid":"43","menuname":"添加支出","icon":"icon-nav","url":"demo2.html"}
-								]
 						},{"menuid":"39","icon":"icon-sys","menuname":"商城管理",
-							"menus":[{"menuid":"51","menuname":"商品分类","icon":"icon-nav","url":"demo.html"},
-									{"menuid":"52","menuname":"商品列表","icon":"icon-nav","url":"demo1.html"},
+							"menus":[
 									{"menuid":"53","menuname":"商品订单","icon":"icon-nav","url":"demo2.html"}
 								]
 						}
@@ -123,11 +120,11 @@
     <div region="north" split="true" border="false" style="overflow: hidden; height: 30px;
         background: url(images/layout-browser-hd-bg.gif) #7f99be repeat-x center 50%;
         line-height: 20px;color: #fff; font-family: Verdana, 微软雅黑,黑体">
-        <span style="float:right; padding-right:20px;" class="head">欢迎 疯狂秀才 <a href="#" id="editpass">修改密码</a> <a href="#" id="loginOut">安全退出</a></span>
+        <span style="float:right; padding-right:20px;" class="head">欢迎 <%=username%> <a href="#" id="editpass">修改密码</a> <a href="#" id="loginOut">安全退出</a></span>
         <span style="padding-left:10px; font-size: 16px; "><img src="images/blocks.gif" width="20" height="20" align="absmiddle" /> 管理信息系统</span>
     </div>
     <div region="south" split="true" style="height: 30px; background: #D2E0F2; ">
-        <div class="footer">By 疯狂秀才 Email:bjhxl@59ibox.cn</div>
+        <div class="footer">麦稻香当当</div>
     </div>
     <div region="west" split="true" title="导航菜单" style="width:180px;" id="west">
 <div class="easyui-accordion" fit="true" border="false">
