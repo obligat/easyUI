@@ -15,6 +15,28 @@ import edu.xupt.util.JdbcUtil;
 public class UserDao {
 	private JdbcUtil jdbc = new JdbcUtil();
 	
+	public String selectByUsername(String username) {
+		Connection conn = jdbc.getConn();
+		String sql = "select * from user where name='" + username + "'";
+		System.out.println(sql);
+		String password = "";
+		try {
+			Statement st = conn.createStatement();
+			ResultSet rs = st.executeQuery(sql);
+			while (rs.next()) {
+				password = rs.getString(3);
+				System.out.print(rs.getString(1) + ", ");
+				System.out.print(rs.getString(2) + ", ");
+				System.out.print(rs.getString(3));
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return password;
+	}
+	
 	public void insert(){
 		//sql = "insert into student (id,name,password) values('";
 		Connection conn = jdbc.getConn();
