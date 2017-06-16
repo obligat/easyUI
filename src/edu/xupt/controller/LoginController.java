@@ -78,6 +78,7 @@ public class LoginController extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		response.setCharacterEncoding("utf-8");
 		UserDao user = new UserDao();
 		response.setContentType("text/html");
 		String username = request.getParameter("username");

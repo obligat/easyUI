@@ -27,7 +27,7 @@
 	<form action="LoginController" method="post">
 		<ul>
 			<li><label>username：</label> <input type="text" name="username" /></li>
-			<li><label>password：</label> <input type="text" name="password" /></li>
+			<li><label>password：</label> <input type="password" name="password" /></li>
 		</ul>
 		<input class="btn" type="submit" value="登录">
 	</form>
